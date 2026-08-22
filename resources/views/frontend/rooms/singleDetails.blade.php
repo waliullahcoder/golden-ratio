@@ -548,6 +548,54 @@
 
                     </div>
 
+                    <!-- SEAT AVAILABILITY -->
+
+                    <h4 class="availability-title">
+                        Room Availability
+                    </h4>
+
+                    <p class="availability-subtitle">
+                        Select from the available capacity
+                    </p>
+
+
+                    @php
+
+                        $totalSeats = $room->capacity;
+
+                        $booked = max(
+                            0,
+                            $room->capacity - $room->available
+                        );
+
+                        $seats = range(1, $totalSeats);
+
+                        shuffle($seats);
+
+                        $bookedSeats = array_slice(
+                            $seats,
+                            0,
+                            $booked
+                        );
+
+                    @endphp
+
+
+                    <div class="seat-grid">
+
+                        @for($i = 1; $i <= $totalSeats; $i++)
+
+                            <div class="seat {{ in_array($i,$bookedSeats) ? 'booked' : 'available' }}">
+
+                                {{ $i }}
+
+                            </div>
+
+                        @endfor
+
+                    </div>
+
+
                 </div>
 
             </div>
@@ -666,53 +714,7 @@
                     </a>
 
 
-                    <!-- SEAT AVAILABILITY -->
-
-                    <h4 class="availability-title">
-                        Room Availability
-                    </h4>
-
-                    <p class="availability-subtitle">
-                        Select from the available capacity
-                    </p>
-
-
-                    @php
-
-                        $totalSeats = $room->capacity;
-
-                        $booked = max(
-                            0,
-                            $room->capacity - $room->available
-                        );
-
-                        $seats = range(1, $totalSeats);
-
-                        shuffle($seats);
-
-                        $bookedSeats = array_slice(
-                            $seats,
-                            0,
-                            $booked
-                        );
-
-                    @endphp
-
-
-                    <div class="seat-grid">
-
-                        @for($i = 1; $i <= $totalSeats; $i++)
-
-                            <div class="seat {{ in_array($i,$bookedSeats) ? 'booked' : 'available' }}">
-
-                                {{ $i }}
-
-                            </div>
-
-                        @endfor
-
-                    </div>
-
+                    
 
                     <div class="seat-legend">
 
@@ -724,8 +726,8 @@
                         <span>
                             <i class="booked"></i>
                             Booked
-                        </span>
-
+                        </span><br>
+                     <p><strong style="color:#ff9b00;">Just follow the room availability status:</strong> green means the room is available, and red means the room is not available.</p>
                     </div>
 
                 </div>
