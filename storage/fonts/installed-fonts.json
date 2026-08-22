@@ -1,0 +1,25 @@
+{
+    "glyphicons halflings": {
+        "normal": "glyphicons_halflings_normal_5eb770d49f33dc5cbd8e4ba1244adab4"
+    },
+    "pt serif": {
+        "italic": "F:\\laragon\\www\\books-and-books\\storage\\fonts\/pt_serif_italic_f9b6598cf7d0419a014cfb138cca32d8",
+        "bold_italic": "F:\\laragon\\www\\books-and-books\\storage\\fonts\/pt_serif_bold_italic_a5b4d598a1a99da44e2320dde5f663d5",
+        "normal": "F:\\laragon\\www\\books-and-books\\storage\\fonts\/pt_serif_normal_b504b7d2db909ef4d76100e1ec28b578",
+        "bold": "pt_serif_bold_23708553f1de70cacb300fe34d5b01eb"
+    },
+    "playfair display": {
+        "italic": "F:\\laragon\\www\\amar-hostel\\storage\\fonts\/playfair_display_italic_bab3bae3f62f67e682f698e956a7d149",
+        "500_italic": "F:\\laragon\\www\\amar-hostel\\storage\\fonts\/playfair_display_500_italic_e95060c97aec28ca995b127b12fea810",
+        "600_italic": "F:\\laragon\\www\\amar-hostel\\storage\\fonts\/playfair_display_600_italic_be970edc640830d5c65326a03b66a69f",
+        "bold_italic": "F:\\laragon\\www\\amar-hostel\\storage\\fonts\/playfair_display_bold_italic_1cffb2eca58523c39821701c0985fd0e",
+        "800_italic": "F:\\laragon\\www\\amar-hostel\\storage\\fonts\/playfair_display_800_italic_7d0d750383f05549082dc87ebf7022de",
+        "900_italic": "F:\\laragon\\www\\amar-hostel\\storage\\fonts\/playfair_display_900_italic_808e890cc5f750b5c26739146ed5b6af",
+        "normal": "F:\\laragon\\www\\amar-hostel\\storage\\fonts\/playfair_display_normal_ec27347baaef350a626d943a8fab74c6",
+        "500": "F:\\laragon\\www\\amar-hostel\\storage\\fonts\/playfair_display_500_91bf4bd454b182f9e98cf4c96be8c8ba",
+        "600": "F:\\laragon\\www\\amar-hostel\\storage\\fonts\/playfair_display_600_555a1287914f9012e021a3b119eb30d7",
+        "bold": "F:\\laragon\\www\\amar-hostel\\storage\\fonts\/playfair_display_bold_1e531eb7e3e1e9744697b9dd01c254b4",
+        "800": "F:\\laragon\\www\\amar-hostel\\storage\\fonts\/playfair_display_800_f72f2e25e2e0baae80bb5e49c05df3ac",
+        "900": "playfair_display_900_50fdbe4bbbec819ad655c1852fc26931"
+    }
+}
