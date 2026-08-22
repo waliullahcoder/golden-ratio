@@ -163,8 +163,12 @@ class UserController extends Controller
 
     public function dashboard()
     {
-        if (auth()->user()->role_status != 0) {
-            abort(403);
+
+         if(auth()->user()->role_status == 1){
+             return redirect()
+                ->route('admin.dashboard'); 
+        }else if (auth()->user()->role_status != 0){
+           abort(403);
         }
         $client = Client::where('user_id', Auth::id())->first();
 

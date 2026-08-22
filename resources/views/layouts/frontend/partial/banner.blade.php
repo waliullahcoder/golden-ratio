@@ -2,10 +2,10 @@
 /* =========================
    FAST & SMOOTH HERO ANIMATION
 ========================= */
-
+/* 
 .banner_area {
     overflow: hidden;
-}
+} */
 
 
 /* =========================
@@ -18,9 +18,16 @@
 }
 
 .banner_area .bg-parallax {
-    background: url("./frontend/images/banner_bg.jpg") no-repeat scroll center 0/cover;
+    background: url("{{ asset($settings->banner_one) }}") no-repeat scroll center 0/cover;
 }
 
+/* .blog_banner_two .bg-parallax {
+   background-image: url("{{ asset($settings->banner_one) }}");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 100% auto;
+    background-attachment: fixed;
+} */
 
 /* =========================
    BANNER CONTENT
@@ -180,8 +187,9 @@
     }
 
 }
+
+
 </style>
-     
     <section class="banner_area">
 
     <div class="booking_table d_flex align-items-center">
@@ -216,7 +224,7 @@
 
         <div class="container">
 
-            <div class="hotel_booking_table">
+            <div class="hotel_booking_table animate__animated animate__fadeInDown">
 
                 <div class="col-md-3">
                     <h2>Book Now</h2>
@@ -280,7 +288,7 @@
 
                                     <div class="book_tabel_item">
 
-                                        <div class="input-group">
+                                        <div class="input-group" style="z-index:999">
 
                                             <select class="wide">
 

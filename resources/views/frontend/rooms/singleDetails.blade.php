@@ -38,11 +38,11 @@
 </style>
 
 <!-- BREADCRUMB -->
-<section class="breadcrumb_area">
+<!-- <section class="breadcrumb_area">
     <div class="container text-center">
         <h2>{{ $room->name }}</h2>
     </div>
-</section>
+</section> -->
 
 <!-- ROOM DETAILS -->
 <section class="room_details_area">
@@ -78,7 +78,7 @@
             ৳ {{ number_format($room->price) }} <span>/ night</span>
         </div>
 
-            <h5>Availability Seat: {{ $room->available }} / {{ $room->capacity }}</h5>
+            <h5>Availability Room: {{ $room->available }} / {{ $room->capacity }}</h5>
         <p>{{ $room->description }}</p>
                                 @php
                                     $avgRating   = round($room->averageRating(), 1); // e.g. 4.5
@@ -106,7 +106,7 @@
                                    class="btn theme_btn button_hover position-absolute bottom-0 start-50 translate-middle-x mb-3">
                                     Book Now
                                 </a>
-            <h5>Guest / Seat Availability</h5>
+            <h5>Room Availability</h5>
 
             @php
             $totalSeats = $room->capacity;

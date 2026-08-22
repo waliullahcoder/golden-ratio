@@ -3,8 +3,8 @@
 @section('content')
   <section class="breadcrumb_area">
             <div class="container">
-                <div class="page-cover text-center">
-                    <h2 class="page-cover-tittle">All Rooms</h2>
+                <div class="page-cover text-center animate__animated animate__fadeInUp">
+                    <h2 class="page-cover-tittle">Accommodation</h2>
                     <ol class="breadcrumb">
                         <li><a href="index.html">Home</a></li>
                         <li class="active">Rooms</li>
@@ -14,7 +14,7 @@
         </section>
   <section class="accomodation_area section_gap">
             <div class="container">
-                <div class="row mb_30">
+                <div class="row mb_30 animate__animated animate__fadeInUp">
                     @foreach ($rooms as $room)
                     <div class="col-lg-3 col-sm-6">
                         <div class="accomodation_item text-center">
@@ -25,7 +25,7 @@
                                     Book Now
                                 </a>
                             </div>
-                            <a href="{{ route('singleDetails', $room->id) }}"><h4 class="sec_h4">{{$room->name}} ({{'ROOMID'.$room->id}})</h4></a>
+                            <a href="{{ route('singleDetails', $room->id) }}"><h4 class="sec_h4">{{$room->name}} ({{$room->category->name}})</h4></a>
                             <h5>৳ {{$room->price}}<small>/night</small></h5>
                         </div>
                     </div>

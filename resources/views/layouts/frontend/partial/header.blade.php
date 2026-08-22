@@ -29,10 +29,28 @@
 
                     
 
-                    <!-- Rooms -->
-                  <li class="nav-item {{ Request::routeIs('roomsPage') ? 'active' : '' }}">
-                        <a class="nav-link" href="{{ route('roomsPage') }}">Rooms</a>
+                    <!-- Accommodation -->
+                     <li class="nav-item submenu dropdown">
+                        <a href="{{ route('roomsPage') }}" class="nav-link">
+                            Accommodation <span class="ms-1">▼</span>
+                        </a>
+
+                        <ul class="dropdown-menu">
+
+                            @foreach ($categories as $category)
+                                <li class="nav-item">
+                                    <a class="nav-link"
+                                    href="{{ route('roomsPage', ['catid' => $category->id]) }}">
+                                        {{ $category->name }}
+                                    </a>
+                                </li>
+                            @endforeach
+
+                        </ul>
                     </li>
+                  <!-- <li class="nav-item {{ Request::routeIs('roomsPage') ? 'active' : '' }}">
+                        <a class="nav-link" href="{{ route('roomsPage') }}">Accommodation</a>
+                    </li> -->
                     <!-- Services -->
                     <li class="nav-item submenu dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown"

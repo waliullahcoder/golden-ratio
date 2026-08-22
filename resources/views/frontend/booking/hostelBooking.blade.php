@@ -66,7 +66,7 @@
                                        class="form-control"
                                        min="1"
                                        value="{{ request('available') }}"
-                                       placeholder="Number of Available Seats">
+                                       placeholder="Number of Available Rooms">
                             </div>
                             <div class="mb-3">
                             <button type="submit"
@@ -115,7 +115,7 @@
                                 </h5>
 
                                 <span class="badge bg-light text-dark mt-2">
-                                    Available Seat: {{ $room->available }}
+                                    Available Room: {{ $room->available }}
                                 </span>
                             </div>
 

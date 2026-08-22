@@ -3,7 +3,7 @@
 @section('content')
   <section class="breadcrumb_area">
             <div class="container">
-                <div class="page-cover text-center">
+                <div class="page-cover text-center animate__animated animate__fadeInUp">
                     <h2 class="page-cover-tittle">About Us</h2>
                     <ol class="breadcrumb">
                         <li><a href="index.html">Home</a></li>
@@ -15,13 +15,13 @@
   <section class="about_history_area section_gap">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-6 d_flex align-items-center">
+                    <div class="col-md-6 d_flex align-items-center animate__animated animate__fadeInUp">
                         <div class="about_content ">
                             <h2 class="title title_color">{{ $services['about']->name }}</h2>
                             <p>{{ $services['about']->description }}</p>
                         </div>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-6 animate__animated animate__fadeInUp">
                         <img class="img-fluid" src="{{ asset('storage/'.$services['about']->image) }}" alt="img" loading="lazy" decoding="async">
                     </div>
                 </div>

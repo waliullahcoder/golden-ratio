@@ -24,10 +24,15 @@ class ViewController extends Controller
 
         return view('frontend.home', compact('rooms','services','testimonials'));
     }
-    public function roomsPage()
+   public function roomsPage($catid = null)
     {
         $rooms = $this->frontEndService->allRooms();
-        return view('frontend.rooms.rooms', compact('rooms'));
+
+        if ($catid) {
+            $rooms = $rooms->where('category_id', $catid);
+        }
+
+        return view('frontend.rooms.rooms', compact('rooms','catid'));
     }
 
     public function roomDetails($id)

@@ -13,3 +13,4 @@
         <link rel="stylesheet" href="{{ asset('frontend/css/responsive.css') }}">
 
         <link rel="stylesheet" href="{{ asset('frontend/css/all.min.css') }}">
+         <link rel="stylesheet" href="{{ asset('frontend/css/animate.css') }}">
