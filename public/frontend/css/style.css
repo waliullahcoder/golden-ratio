@@ -239,7 +239,8 @@ button:focus {
 /*----------------------------------------------------*/
 /*============== header css =============*/
 .header_area {
-  position: absolute;
+  /* position: absolute; */
+  background: #000000;
   top: 0;
   left: 0;
   width: 100%;
@@ -253,7 +254,7 @@ button:focus {
 }
 
 .navbar {
-  background: #fff;
+  background: #000000;
   padding: 0px 25px;
 }
 
@@ -264,7 +265,7 @@ button:focus {
 
 .navbar .menu_nav .nav-item .nav-link {
   font: 500 12px/80px "Poppins", sans-serif;
-  color: #222222;
+  color: #C59D5F;
   text-transform: uppercase;
   padding: 0px;
 }
@@ -383,7 +384,7 @@ button:focus {
   position: fixed;
   width: 100%;
   left: 0;
-  background: #fff;
+  background: #000000;
   top: 0;
   top: -50px;
   -webkit-transform: translateY(50px);
@@ -402,15 +403,11 @@ button:focus {
 /*----------------------------------------------------*/
 /*============= Start banner_area css =============*/
 .banner_area {
-  background: #04091e;
+  /* background: #04091e; */
   position: relative;
   z-index: 1;
 }
 
-.banner_area .bg-parallax {
-  background: url("../images/banner_bg.jpg") no-repeat scroll center 0/cover;
-  opacity: 0.50;
-}
 
 .banner_area .position {
   width: 100%;
