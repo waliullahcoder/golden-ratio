@@ -3,7 +3,7 @@
 @section('content')
   <section class="breadcrumb_area">
             <div class="container">
-                <div class="page-cover text-center">
+                <div class="page-cover text-center animate__animated animate__fadeInUp">
                     <h2 class="page-cover-tittle">Gallery</h2>
                     <ol class="breadcrumb">
                         <li><a href="index.html">Home</a></li>
@@ -15,7 +15,7 @@
      <!--================Gallery Area =================-->
         <section class="latest_blog_area section_gap">
     <div class="container">
-        <div class="row mb_30">
+        <div class="row mb_30 animate__animated animate__fadeInUp">
             @foreach ($services['gallery'] as $item)
             <div class="col-lg-4 col-md-6">
                 <div class="single-recent-blog-post">

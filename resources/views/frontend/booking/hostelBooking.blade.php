@@ -5,7 +5,7 @@
 <!--================ Breadcrumb Area =================-->
 <section class="breadcrumb_area">
     <div class="container">
-        <div class="page-cover text-center">
+        <div class="page-cover text-center animate__animated animate__bounceInRight">
             <h2 class="page-cover-tittle">Resort Room Booking</h2>
             <ol class="breadcrumb">
                 <li><a href="{{ url('/') }}">Home</a></li>
@@ -17,7 +17,7 @@
 <!--================ Breadcrumb Area =================-->
 
 <!--================ Booking Area =================-->
-<section class="accomodation_area section_gap">
+<section class="accomodation_area section_gap animate__animated animate__bounceInRight">
     <div class="container">
          {{-- GLOBAL SUCCESS --}}
                         @if(session('success'))

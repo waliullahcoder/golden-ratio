@@ -320,7 +320,7 @@ class AdminController extends Controller
 
             $account = CoaSetup::create([
                 'parent_id'   => $parent->id,          // id use করা ভালো
-                'head_code'   => $room->id,   // চাইলে নতুন code generate করতে পারো
+                // 'head_code'   => $room->id,   // চাইলে নতুন code generate করতে পারো
                 'head_name'   => $request->name,
                 'transaction' => true,
                 'general'     => false,

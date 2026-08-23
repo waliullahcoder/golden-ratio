@@ -3,7 +3,7 @@
 @section('content')
   <section class="breadcrumb_area">
             <div class="container">
-                <div class="page-cover text-center">
+                <div class="page-cover text-center animate__animated animate__fadeInUp">
                     <h2 class="page-cover-tittle">Service Details</h2>
                     <ol class="breadcrumb">
                         <li><a href="index.html">Home</a></li>
@@ -13,7 +13,7 @@
             </div>
         </section>
   <section class="about_history_area section_gap">
-            <div class="container">
+            <div class="container animate__animated animate__fadeInUp">
                 <div class="row">
                     <div class="col-md-6 d_flex align-items-center">
                         <div class="about_content ">

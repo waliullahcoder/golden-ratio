@@ -18,7 +18,7 @@
        ROOM DETAILS AREA
     ========================== */
     .room_details_area {
-        padding: 70px 0;
+        padding: 10px 0;
         background: linear-gradient(180deg, #f6f9fc 0%, #ffffff 100%);
     }
 
@@ -520,7 +520,7 @@
             <!-- GALLERY -->
             <div class="col-lg-6">
 
-                <div class="gallery-box">
+                <div class="gallery-box animate__animated animate__fadeInUp">
 
                     <div class="gallery-main">
 
@@ -602,7 +602,7 @@
 
 
             <!-- ROOM DETAILS -->
-            <div class="col-lg-6">
+            <div class="col-lg-6 animate__animated animate__fadeInDown">
 
                 <div class="room-info-card">
 

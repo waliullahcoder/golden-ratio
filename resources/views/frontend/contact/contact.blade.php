@@ -3,7 +3,7 @@
 @section('content')
   <section class="breadcrumb_area">
             <div class="container">
-                <div class="page-cover text-center">
+                <div class="page-cover text-center animate__animated animate__fadeInUp">
                     <h2 class="page-cover-tittle">Contact Us</h2>
                     <ol class="breadcrumb">
                         <li><a href="index.html">Home</a></li>
@@ -14,7 +14,7 @@
         </section>
      <!--================Contact Area =================-->
         <section class="contact_area section_gap">
-            <div class="container">
+            <div class="container animate__animated animate__fadeInUp">
                 <div class="row">
                     <div class="col-md-3">
                         <div class="contact_info">
@@ -36,7 +36,7 @@
                         </div>
                     </div>
                     <div class="col-md-9">
-                        <form class="row contact_form" action="contact_process.php" method="post" id="contactForm" novalidate="novalidate">
+                        <form class="row contact_form" action="#" method="post" id="contactForm" novalidate="novalidate">
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <input type="text" class="form-control" id="name" name="name" placeholder="Enter your name">
@@ -54,7 +54,7 @@
                                 </div>
                             </div>
                             <div class="col-md-12 text-right">
-                                <button type="submit" value="submit" class="btn theme_btn button_hover">Send Message</button>
+                                <button type="button" value="submit" class="btn theme_btn button_hover">Send Message</button>
                             </div>
                         </form>
                     </div>

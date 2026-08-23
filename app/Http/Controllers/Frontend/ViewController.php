@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use App\Services\FrontEndService;
 use App\Models\Review;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Http;
 class ViewController extends Controller
 {
     protected $frontEndService;
@@ -98,5 +99,134 @@ class ViewController extends Controller
        $review_count=Review::where('room_id', $room->id)->where('user_id',Auth::id())->count();
         return view('frontend.rooms.singleDetails', compact('room','review_count'));
     }
+
+    public function geminiChat(Request $request)
+    {
+        $request->validate([
+            'message' => 'required|string|max:2000',
+        ]);
+
+        $apiKey = trim(env('GEMINI_API_KEY'));
+
+        if (!$apiKey) {
+            return response()->json([
+                'success' => false,
+                'message' => 'GEMINI_API_KEY is missing from .env'
+            ], 500);
+        }
+
+        $url = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent';
+
+        $postData = [
+            'contents' => [
+                [
+                    'role' => 'user',
+                    'parts' => [
+                        [
+                            'text' => $request->message
+                        ]
+                    ]
+                ]
+            ]
+        ];
+
+        $ch = curl_init();
+
+        curl_setopt_array($ch, [
+            CURLOPT_URL => $url,
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_POST => true,
+
+            CURLOPT_HTTPHEADER => [
+                'Content-Type: application/json',
+                'x-goog-api-key: ' . $apiKey,
+            ],
+
+            CURLOPT_POSTFIELDS => json_encode($postData),
+
+            CURLOPT_TIMEOUT => 60,
+            CURLOPT_CONNECTTIMEOUT => 15,
+
+            CURLOPT_SSL_VERIFYPEER => true,
+            CURLOPT_SSL_VERIFYHOST => 2,
+        ]);
+
+        $result = curl_exec($ch);
+
+        $curlError = curl_error($ch);
+        $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+
+        curl_close($ch);
+
+
+        // ==========================
+        // CURL ERROR
+        // ==========================
+
+        if ($curlError) {
+
+            return response()->json([
+                'success' => false,
+                'message' => 'cURL Error',
+                'error' => $curlError,
+            ], 500);
+        }
+
+
+        $response = json_decode($result, true);
+
+
+        // ==========================
+        // GEMINI API ERROR
+        // ==========================
+
+        if ($httpCode < 200 || $httpCode >= 300) {
+
+            return response()->json([
+                'success' => false,
+                'message' => 'Gemini API Error',
+                'http_code' => $httpCode,
+                'error' => $response,
+                'raw_response' => $result,
+            ], 500);
+        }
+
+
+        // ==========================
+        // GET RESPONSE
+        // ==========================
+
+        $reply = '';
+
+        if (isset($response['candidates'][0]['content']['parts'])) {
+
+            foreach ($response['candidates'][0]['content']['parts'] as $part) {
+
+                if (isset($part['text'])) {
+                    $reply .= $part['text'];
+                }
+            }
+        }
+
+
+        if (!$reply) {
+
+            return response()->json([
+                'success' => false,
+                'message' => 'Gemini returned empty response.',
+                'response' => $response,
+            ], 500);
+        }
+
+
+        return response()->json([
+            'success' => true,
+            'reply' => $reply,
+        ]);
+    }
+
+
+
+
     
 }

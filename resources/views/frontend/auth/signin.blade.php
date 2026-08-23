@@ -5,7 +5,7 @@
 <!--================ Breadcrumb Area =================-->
 <section class="breadcrumb_area">
     <div class="container">
-        <div class="page-cover text-center">
+        <div class="page-cover text-center animate__animated animate__bounceInDown">
             <h2 class="page-cover-tittle">Sign In</h2>
             <ol class="breadcrumb">
                 <li><a href="{{ url('/') }}">Home</a></li>
@@ -21,7 +21,7 @@
     <div class="container">
         <div class="row justify-content-center align-items-center">
 
-            <div class="col-md-6 col-lg-5">
+            <div class="col-md-6 col-lg-5 animate__animated animate__bounceInDown">
                 <div class="card shadow"
                      style="border:1px solid #eee; border-radius:16px;">
                     

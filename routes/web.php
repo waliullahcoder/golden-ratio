@@ -24,6 +24,11 @@ Route::get('/storage-link', function () {
     return back()->withSuccessMessage('Storage linked successfully!');
 })->name('admin.storage.link');
 
+Route::post('/gemini-chat', [
+    ViewController::class,
+    'geminiChat'
+])->name('gemini.chat');
+
 Route::get('/', [ViewController::class, 'index'])->name('home');
 Route::get('/about', [ViewController::class, 'aboutPage'])->name('aboutPage');
 Route::get('/gallery', [ViewController::class, 'galleryPage'])->name('galleryPage');
