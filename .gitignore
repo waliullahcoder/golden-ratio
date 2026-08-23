@@ -21,3 +21,6 @@ yarn-error.log
 /.nova
 /.vscode
 /.zed
+# Laravel cache
+/bootstrap/cache/*.php
+/bootstrap/cache/*

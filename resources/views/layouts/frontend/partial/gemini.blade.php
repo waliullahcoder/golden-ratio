@@ -1,108 +1,4 @@
 
-       <!-- ==============================
-     GEMINI CHATBOT
-================================ -->
-
-<div id="geminiChatbot">
-
-    <!-- Floating Button -->
-    <button id="chatbotToggle" class="chatbot-toggle">
-
-        <i class="fa fa-comments"></i>
-
-        <span class="chat-notification">
-            1
-        </span>
-
-    </button>
-
-
-    <!-- Chat Window -->
-    <div class="chatbot-window">
-
-        <!-- Header -->
-        <div class="chatbot-header">
-
-            <div class="bot-profile">
-
-                <div class="bot-avatar">
-                    <img src="{{asset($settings->logo)}}" style="width:40px; border-radius:50%;>
-                    <i class="fa fa-robot"></i>
-                </div>
-
-                <div>
-                    <strong>Golden Ratio AI Chatbot</strong>
-
-                    <small>
-                        <span class="online-dot"></span>
-                        Online
-                    </small>
-                </div>
-
-            </div>
-
-
-            <button id="chatbotClose">
-                ×
-            </button>
-
-        </div>
-
-
-        <!-- Messages -->
-        <div id="chatMessages" class="chat-messages">
-
-            <div class="bot-message">
-
-                <div class="message-avatar">
-                    <i class="fa fa-robot"></i>
-                </div>
-
-                <div class="message-content">
-                    Hello! 👋
-                    <br>
-                    How can I help you today?
-                </div>
-
-            </div>
-
-        </div>
-
-
-        <!-- Typing -->
-        <div id="typingIndicator" class="typing-indicator">
-
-            <span></span>
-            <span></span>
-            <span></span>
-
-            <small>AI is typing...</small>
-
-        </div>
-
-
-        <!-- Input -->
-        <div class="chatbot-input-area">
-
-            <input
-                type="text"
-                id="chatInput"
-                placeholder="Type your message..."
-                autocomplete="off"
-            >
-
-            <button id="sendMessage">
-
-                <i class="fa fa-paper-plane"></i>
-
-            </button>
-
-        </div>
-
-    </div>
-
-</div>
-
 
 <style>
 
@@ -626,6 +522,109 @@
 }
 
 </style>
+       <!-- ==============================
+     GEMINI CHATBOT
+================================ -->
+
+<div id="geminiChatbot">
+
+    <!-- Floating Button -->
+    <button id="chatbotToggle" class="chatbot-toggle">
+
+        <i class="fa fa-comments"></i>
+
+        <span class="chat-notification">
+            1
+        </span>
+
+    </button>
+
+
+    <!-- Chat Window -->
+    <div class="chatbot-window">
+
+        <!-- Header -->
+        <div class="chatbot-header">
+
+            <div class="bot-profile">
+
+                <div class="bot-avatar">
+                    <img src="{{asset($settings->logo)}}" style="width:40px; border-radius:50%;>
+                    <i class="fa fa-robot"></i>
+                </div>
+
+                <div>
+                    <strong>Golden Ratio AI Chatbot</strong>
+
+                    <small>
+                        <span class="online-dot"></span>
+                        Online
+                    </small>
+                </div>
+
+            </div>
+
+
+            <button id="chatbotClose">
+                ×
+            </button>
+
+        </div>
+
+
+        <!-- Messages -->
+        <div id="chatMessages" class="chat-messages">
+
+            <div class="bot-message">
+
+                <div class="message-avatar">
+                    <i class="fa fa-robot"></i>
+                </div>
+
+                <div class="message-content">
+                    Hello! 👋
+                    <br>
+                    How can I help you today?
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- Typing -->
+        <div id="typingIndicator" class="typing-indicator">
+
+            <span></span>
+            <span></span>
+            <span></span>
+
+            <small>AI is typing...</small>
+
+        </div>
+
+
+        <!-- Input -->
+        <div class="chatbot-input-area">
+
+            <input
+                type="text"
+                id="chatInput"
+                placeholder="Type your message..."
+                autocomplete="off"
+            >
+
+            <button id="sendMessage">
+
+                <i class="fa fa-paper-plane"></i>
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
 
 
 <script>
@@ -688,8 +687,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function addMessage(message, type) {
 
-        const wrapper =
-            document.createElement('div');
+        const wrapper = document.createElement('div');
 
         wrapper.className =
             type === 'user'
@@ -697,28 +695,20 @@ document.addEventListener('DOMContentLoaded', function () {
                 : 'bot-message';
 
 
-        const content =
-            document.createElement('div');
+        const content = document.createElement('div');
 
-        content.className =
-            'message-content';
+        content.className = 'message-content';
 
 
-        /*
-         * textContent ব্যবহার করছি যাতে
-         * user input থেকে HTML inject না হয়
-         */
-
+        // Prevent HTML injection
         content.textContent = message;
 
 
         if (type === 'bot') {
 
-            const avatar =
-                document.createElement('div');
+            const avatar = document.createElement('div');
 
-            avatar.className =
-                'message-avatar';
+            avatar.className = 'message-avatar';
 
             avatar.innerHTML =
                 '<i class="fa fa-robot"></i>';
@@ -754,6 +744,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
 
 
+        // User message
         addMessage(message, 'user');
 
 
@@ -764,6 +755,7 @@ document.addEventListener('DOMContentLoaded', function () {
         send.disabled = true;
 
 
+        // Show typing
         typing.style.display = 'flex';
 
 
@@ -773,52 +765,63 @@ document.addEventListener('DOMContentLoaded', function () {
 
         try {
 
-            const response =
-                await fetch(
-                    "{{ route('gemini.chat') }}",
-                    {
+            const response = await fetch(
+                "{{ route('gemini.chat') }}",
+                {
+                    method: 'POST',
 
-                        method: 'POST',
+                    headers: {
 
-                        headers: {
+                        'Content-Type':
+                            'application/json',
 
-                            'Content-Type':
-                                'application/json',
+                        'X-CSRF-TOKEN':
+                            "{{ csrf_token() }}",
 
-                            'X-CSRF-TOKEN':
-                                "{{ csrf_token() }}",
+                        'Accept':
+                            'application/json'
 
-                            'Accept':
-                                'application/json'
+                    },
 
-                        },
+                    body: JSON.stringify({
 
-                        body: JSON.stringify({
+                        message: message
 
-                            message: message
+                    })
 
-                        })
-
-                    }
-                );
+                }
+            );
 
 
             const data =
                 await response.json();
 
 
-            typing.style.display =
-                'none';
+            console.log('Gemini Response:', data);
 
 
-            if (data.success) {
+            typing.style.display = 'none';
+
+
+            /* =========================================
+               SUCCESS
+            ========================================= */
+
+            if (data.success && data.message) {
 
                 addMessage(
-                    data.reply,
+                    data.message,
                     'bot'
                 );
 
-            } else {
+            }
+
+
+            /* =========================================
+               ERROR
+            ========================================= */
+
+            else {
 
                 addMessage(
                     data.message ||
@@ -831,8 +834,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
         } catch (error) {
 
-            typing.style.display =
-                'none';
+            console.error(
+                'Gemini Error:',
+                error
+            );
+
+
+            typing.style.display = 'none';
 
 
             addMessage(

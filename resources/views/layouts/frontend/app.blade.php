@@ -29,6 +29,7 @@
         
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
        @include('layouts.frontend.partial.scripts')
+		@include('layouts.frontend.partial.gemini')
 
 </body>
 </html>
