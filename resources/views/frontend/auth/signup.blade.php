@@ -58,18 +58,7 @@
                                 @enderror
                             </div>
 
-                            <!-- Email -->
-                            <div class="form-group mb-3">
-                                <label class="form-label">Email Address</label>
-                                <input type="email"
-                                       name="email"
-                                       value="{{ old('email') }}"
-                                       class="form-control rounded-pill py-2 px-3 @error('email') is-invalid @enderror"
-                                       required>
-                                @error('email')
-                                    <small class="text-danger">{{ $message }}</small>
-                                @enderror
-                            </div>
+                           
 
                              <!-- Phone -->
                             <div class="form-group mb-3">

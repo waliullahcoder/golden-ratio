@@ -44,12 +44,12 @@
                             <!-- Username -->
                             <div class="form-group mb-3">
                                 <input type="text"
-                                       name="email"
-                                       value="{{ old('email') }}"
-                                       class="form-control rounded-pill py-2 px-3 @error('email') is-invalid @enderror"
-                                       placeholder="Email Address"
+                                       name="phone"
+                                       value="{{ old('phone') }}"
+                                       class="form-control rounded-pill py-2 px-3 @error('phone') is-invalid @enderror"
+                                       placeholder="Phone"
                                        required>
-                                @error('email')
+                                @error('phone')
                                     <small class="text-danger">{{ $message }}</small>
                                 @enderror
                             </div>

@@ -36,11 +36,11 @@ class UserController extends Controller
     public function signinPost(Request $request)
     {
         $request->validate([
-            'email'    => 'required|email',
+            'phone' => 'required|min:11',
             'password' => 'required',
         ]);
 
-        $credentials = $request->only('email', 'password');
+        $credentials = $request->only('phone', 'password');
 
         if (Auth::attempt($credentials)) {
 
@@ -94,7 +94,6 @@ class UserController extends Controller
            
             $request->validate([
                 'name'     => 'required|string|max:255',
-                'email'    => 'required|email|unique:users,email',
                 'phone' => 'required|min:11',
                 'password' => 'required|min:6|confirmed', // 👈 confirm handled here
             ]);
@@ -106,7 +105,7 @@ class UserController extends Controller
             $user = User::create([
                 'name'        => $request->name,
                 'phone'        => $request->phone,
-                'user_name'   => strtolower(str_replace(' ', '', $request->name)),
+                'user_name'   => strtolower(str_replace(' ', '', $request->phone)),
                 'email'       => $request->email,
                 'password'    => Hash::make($request->password),
                 'role_status' => 0,
