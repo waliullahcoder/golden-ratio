@@ -106,6 +106,8 @@ class AuthController extends Controller
             ];
         }
 
+       // dd($request->all(),Auth::user()->hasRole('Investor'));
+
         if (Auth::user()->hasRole('Investor')) {
             return view('admin.auth.investor-dashbaord', compact('data'));
         } else {

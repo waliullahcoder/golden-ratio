@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Room;
+use App\Models\Role;
+use Illuminate\Support\Facades\Hash;
 use App\Models\Service;
 use App\Models\Category;
 use App\Models\Booking;
@@ -76,7 +78,7 @@ class AdminController extends Controller
             'user_name'  => ['required', 'string', 'unique:users,user_name'],
             'email'      => ['nullable', 'email', 'unique:users,email'],
             'phone'      => ['nullable', 'unique:users,phone'],
-            'password'   => ['required', Password::min(8), 'confirmed'],
+            'password'   => ['required', 'confirmed'],
             // 'password'   => ['required', Password::min(8)->letters()->mixedCase()->numbers()->symbols(), 'confirmed'],
             'role_id'    => ['required', 'exists:roles,id'],
             'image'      => ['nullable', 'image'],
@@ -94,7 +96,7 @@ class AdminController extends Controller
 
         $user = $this->model::create($userData);
 
-        $user->assignRole(Role::findById($validated['role_id']));
+       // $user->assignRole(Role::findById($validated['role_id']));
 
         return redirect()->route("admin.{$this->path}.index")->withSuccessMessage('Created Successfully!');
     }
